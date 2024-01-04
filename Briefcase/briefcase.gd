@@ -13,6 +13,7 @@ var thrown = false
 var awakened = false
 var health = 1000
 const STARTINGHEALTH = 1000.0
+var enemyMultiplyer = 1
 
 func _physics_process(delta):
 	if travelled_distance < player.throwDistance and thrown:
@@ -24,11 +25,12 @@ func _physics_process(delta):
 		thrown = false
 		travelled_distance = 0
 		
-	const DAMAGE_RATE = 100.0
+	const DAMAGE_RATE = 10.0
 	var overlapping_mobs = %BriefcaseHurtBox.get_overlapping_bodies()
 	
 	if overlapping_mobs.size() > 0:
 		health -= DAMAGE_RATE * overlapping_mobs.size() * delta
+		%BriefcaseHealth.value = health;
 		progressBar.value = health
 		
 		if health >= STARTINGHEALTH / 2:
@@ -63,12 +65,14 @@ func _on_body_exited(body):
 		inRange = false
 
 func _input(_event):
-	if Input.is_action_pressed("pickUp") and inRange:
+	if Input.is_action_pressed("pickUp") and inRange && !pickedUp:
 		pickedUp = true
 		awakened = true
 		position = player.position
+		rotation = 0
+		ItemPickup.play()
 
-
+ 
 func spawn_mob():
 	var new_mob = preload("res://Enemies/mob.tscn").instantiate()
 	followPath.progress_ratio = randf()
@@ -78,6 +82,6 @@ func spawn_mob():
 
 func _on_timer_timeout():
 	if awakened:
-		spawn_mob()
-		if timer.wait_time > 1.0:
-			timer.wait_time -= 0.01
+		enemyMultiplyer += 1
+		for n in enemyMultiplyer:
+			spawn_mob()

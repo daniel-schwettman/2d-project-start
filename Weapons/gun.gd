@@ -3,7 +3,7 @@ extends Area2D
 @onready var player = get_node("/root/Game/Player")
 @onready var briefcase = get_node("/root/Game/Briefcase")
 var isShooting = false
-var frameCount = 30
+var frameCount = 15
 var isThrowing = false
 
 func _physics_process(_delta):
@@ -36,7 +36,7 @@ func throw():
 		briefcase.global_rotation = %ShootingPoint.global_rotation
 		briefcase.thrown = true
 		briefcase.inRange = false
-		GunshotSfx.play()
+		Throw.play()
 		frameCount = 0
 		
 func _on_timer_timeout():

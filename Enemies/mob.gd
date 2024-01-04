@@ -1,11 +1,14 @@
 extends CharacterBody2D
 
 var direction
-var health = 2
+var health = 10
+var knockbackPower  = 1000
 
 @onready var player = get_node("/root/Game/Player")
 @onready var briefcase = get_node("/root/Game/Briefcase")
 @onready var enemiesKilled = get_node("/root/Game/GameOver/ColorRect/EnemiesKilled")
+var knockedback = false
+var knockbackDirection = 1
 
 func _ready():
 	%Slime.play_walk()
@@ -17,9 +20,20 @@ func _physics_process(_delta):
 		direction = global_position.direction_to(player.global_position)
 		
 	velocity = direction * 250.0
+	
+	#if knockedback:
+		#velocity = Vector2.ZERO
+		#position *=  Vector2(-1,-1) * knockbackDirection
+		#knockedback = false
 	move_and_slide()
 	
-func take_damage(dmg):
+func knockback(playerVelocity):
+	var knockbackDirection = (playerVelocity - velocity).normalized() * knockbackPower
+	velocity = knockbackDirection
+	move_and_slide()
+	
+func take_damage(dmg):	
+	knockback(player.velocity)
 	health -= dmg
 	Damage.play()
 	%Slime.play_hurt()

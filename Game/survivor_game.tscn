@@ -51,7 +51,7 @@ rotation = -0.00454815
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 1.947
+wait_time = 6.794
 autostart = true
 
 [node name="GameOver" type="CanvasLayer" parent="."]

@@ -3,6 +3,7 @@ extends CharacterBody2D
 signal health_depleted
 
 @onready var briefcase = get_node("/root/Game/Briefcase")
+@export var knockbackPower = 500
 
 const STARTINGHEALTH = 100.0
 var health = 100.0
@@ -10,7 +11,7 @@ var money = 0
 var bulletDamage = 1
 var bulletSpeed = 1000
 var bulletRange = 1000
-var frameCount = 30
+var frameCount = 15
 var canPurchase = false
 var upgradeCost = 1.00
 var currentPistolLevel = 1
@@ -29,10 +30,9 @@ func _upgradePistol():
 		money -= upgradeCost
 		currentPistolLevel += 1
 		upgradeCost += 1 * currentPistolLevel
-		bulletRange += 100 * currentPistolLevel
-		bulletSpeed += 50 * currentPistolLevel
+		bulletRange += 10 * currentPistolLevel
+		bulletSpeed += 10 * currentPistolLevel
 		bulletDamage += 1
-		frameCount -= 1 * currentPistolLevel
 		
 	if money < upgradeCost:
 		canPurchase = false
@@ -42,6 +42,7 @@ func _upgradePistol():
 func _input(_event):
 	if Input.is_action_pressed("drop") and briefcase.pickedUp:
 		briefcase.pickedUp = false
+		ItemPickup.play()
 
 func _physics_process(delta):
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -56,12 +57,17 @@ func _physics_process(delta):
 	else:
 		%HappyBoo.play_idle_animation()
 	
-	const DAMAGE_RATE = 100.0
+	const DAMAGE_RATE = 5.0
 	
 	var overlapping_mobs = %HurtBox.get_overlapping_bodies()
 	
 	if overlapping_mobs.size() > 0:
 		health -= DAMAGE_RATE * overlapping_mobs.size() * delta
+		
+		for n in overlapping_mobs:
+			n.knockback(velocity)
+			knockback(n.velocity)
+			
 		%ProgressBar.value = health
 		
 		if health >= STARTINGHEALTH / 2:
@@ -79,3 +85,8 @@ func _physics_process(delta):
 		if health <= 0:
 			health_depleted.emit()
 			GameOver.play()
+
+func knockback(enemyVelocity):
+	var knockbackDirection = (enemyVelocity - velocity).normalized() * knockbackPower
+	velocity = knockbackDirection
+	move_and_slide()

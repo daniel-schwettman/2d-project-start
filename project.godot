@@ -94,6 +94,8 @@ MenuMusic="*res://Audio/MenuMusic.tscn"
 Money="*res://Audio/money.tscn"
 Purchase="*res://Audio/Purchase.tscn"
 SelectSfx="*res://Audio/SelectSFX.tscn"
+ItemPickup="*res://Audio/ItemPickup.tscn"
+Throw="*res://Audio/Throw.tscn"
 
 [display]
 
