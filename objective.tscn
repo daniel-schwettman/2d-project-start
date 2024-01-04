@@ -1,0 +1,122 @@
+[gd_scene load_steps=21 format=3 uid="uid://b7dj0vj7yefo4"]
+
+[ext_resource type="Texture2D" uid="uid://b61ttupxn1wqj" path="res://Smoke/1.png" id="1_coemm"]
+[ext_resource type="Script" path="res://objective.gd" id="1_t37gi"]
+[ext_resource type="Texture2D" uid="uid://bb4c4jigm6dpf" path="res://Smoke/2.png" id="2_k6rce"]
+[ext_resource type="Texture2D" uid="uid://bkmslhtimbtki" path="res://Smoke/3.png" id="3_8u47t"]
+[ext_resource type="Texture2D" uid="uid://dqmeuy23m8qsy" path="res://Smoke/4.png" id="4_7luq0"]
+[ext_resource type="Texture2D" uid="uid://jr0wlae034k6" path="res://Smoke/5.png" id="5_ifnek"]
+[ext_resource type="Texture2D" uid="uid://bdqpgk85h3jgn" path="res://Smoke/6.png" id="6_fltuu"]
+[ext_resource type="Texture2D" uid="uid://n021vg8h2ldu" path="res://Smoke/7.png" id="7_70sgy"]
+[ext_resource type="Texture2D" uid="uid://djh2ma5eagyip" path="res://Smoke/8.png" id="8_q1kqw"]
+[ext_resource type="Texture2D" uid="uid://dh3lx44eeax2h" path="res://Smoke/9.png" id="10_gs28n"]
+[ext_resource type="Texture2D" uid="uid://bn73mabgks152" path="res://Smoke/10.png" id="11_3ni0k"]
+[ext_resource type="Texture2D" uid="uid://dxlwsxhsetngb" path="res://Smoke/11.png" id="12_nplth"]
+[ext_resource type="Texture2D" uid="uid://cunqktc11b8nd" path="res://Smoke/12.png" id="13_6e3a2"]
+[ext_resource type="Texture2D" uid="uid://b6hhdl3hjx6sf" path="res://Smoke/13.png" id="14_5admy"]
+[ext_resource type="Texture2D" uid="uid://ca128marpl48o" path="res://Smoke/14.png" id="15_64r67"]
+[ext_resource type="Texture2D" uid="uid://csceoaidh4odu" path="res://Smoke/15.png" id="16_pkrih"]
+[ext_resource type="Texture2D" uid="uid://ugbxal12ex8y" path="res://Smoke/16.png" id="17_6phve"]
+[ext_resource type="Texture2D" uid="uid://cswb5do8rrj7q" path="res://pistol/pistol.png" id="18_4dwy8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hwr1c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_coemm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_k6rce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8u47t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7luq0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ifnek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fltuu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_70sgy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_q1kqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_q1kqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_gs28n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_3ni0k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_nplth")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_6e3a2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5admy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_64r67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_pkrih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_6phve")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ep22b"]
+radius = 142.004
+
+[node name="Objective" type="StaticBody2D"]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_t37gi")
+
+[node name="Objective" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(1, 1, 0, 1)
+position = Vector2(-2, 30)
+sprite_frames = SubResource("SpriteFrames_hwr1c")
+autoplay = "default"
+frame_progress = 0.850779
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(5, -41)
+shape = SubResource("CircleShape2D_ep22b")
+
+[node name="UpgradeLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -439.0
+offset_top = -343.0
+offset_right = 443.0
+offset_bottom = -212.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 46
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="GunSprite" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(19, -63)
+texture = ExtResource("18_4dwy8")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]

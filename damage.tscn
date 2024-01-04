@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dulrqu12uuf3h"]
+
+[ext_resource type="AudioStream" uid="uid://clmfsmq74ogt0" path="res://characters/slime/squish.mp3" id="1_a78w3"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_a78w3")

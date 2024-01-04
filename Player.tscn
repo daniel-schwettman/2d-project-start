@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://cu7nprwcf32j1"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_y8i1n"]
+[ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="2_ly8sk"]
+[ext_resource type="PackedScene" uid="uid://drqr0a7gqmouv" path="res://gun.tscn" id="3_0ee20"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mcqfm"]
+radius = 20.9051
+height = 49.1718
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pg21d"]
+radius = 38.0132
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kt4yp"]
+size = Vector2(1920.3, 1078.58)
+
+[node name="Player" type="CharacterBody2D"]
+rotation = 0.000742004
+collision_mask = 2
+platform_floor_layers = 4294967040
+script = ExtResource("1_y8i1n")
+
+[node name="HappyBoo" parent="." instance=ExtResource("2_ly8sk")]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.90735e-06, -2.38419e-07)
+scale = Vector2(1.38722, 1.09819)
+shape = SubResource("CapsuleShape2D_mcqfm")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Gun" parent="." instance=ExtResource("3_0ee20")]
+unique_name_in_owner = true
+position = Vector2(-1, -38)
+
+[node name="HurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+visible = false
+visibility_layer = 2
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+rotation = 0.0609002
+shape = SubResource("CircleShape2D_pg21d")
+debug_color = Color(0.807843, 0.329412, 0.639216, 0.419608)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -116.098
+offset_top = -131.914
+offset_right = 121.902
+offset_bottom = -104.914
+value = 50.0
+show_percentage = false
+
+[node name="ViewChecker" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="ViewCheckerShape" type="CollisionShape2D" parent="ViewChecker"]
+unique_name_in_owner = true
+position = Vector2(-1.00148, -1.99926)
+shape = SubResource("RectangleShape2D_kt4yp")
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="area_shape_entered" from="HurtBox" to="." method="_on_hurt_box_area_shape_entered"]

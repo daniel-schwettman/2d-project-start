@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4hws8pcd5xnv"]
+
+[ext_resource type="AudioStream" uid="uid://7dcvrh546i4y" path="res://pistol/gunshot.mp3" id="1_icfmq"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_icfmq")
+volume_db = -25.298

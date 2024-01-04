@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmycqytdtyjic"]
+
+[ext_resource type="AudioStream" uid="uid://cbr7whwmyaeq4" path="res://characters/happy_boo/gameOver.mp3" id="1_0n7e0"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_0n7e0")
