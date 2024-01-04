@@ -75,21 +75,25 @@ Settings/Show_Tooltips=true
 [application]
 
 config/name="Your First 2D Game With Godot 4: START (GDQuest)"
-run/main_scene="res://survivor_game.tscn"
+run/main_scene="res://Game/survivor_game.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.png"
+config/icon="res://UI/icon.png"
+
+[audio]
+
+buses/default_bus_layout="res://UI/default_bus_layout.tres"
 
 [autoload]
 
-BackGroundMusic="*res://BackGroundMusic.tscn"
-Damage="*res://damage.tscn"
-Death="*res://death.tscn"
-GameOver="*res://gameOver.tscn"
-GunshotSfx="*res://GunshotSfx.tscn"
-MenuMusic="*res://MenuMusic.tscn"
-Money="*res://money.tscn"
-Purchase="*res://Purchase.tscn"
-SelectSfx="*res://SelectSFX.tscn"
+BackGroundMusic="*res://Audio/BackGroundMusic.tscn"
+Damage="*res://Audio/damage.tscn"
+Death="*res://Audio/death.tscn"
+GameOver="*res://UI/gameOver.tscn"
+GunshotSfx="*res://Audio/GunshotSfx.tscn"
+MenuMusic="*res://Audio/MenuMusic.tscn"
+Money="*res://Audio/money.tscn"
+Purchase="*res://Audio/Purchase.tscn"
+SelectSfx="*res://Audio/SelectSFX.tscn"
 
 [display]
 

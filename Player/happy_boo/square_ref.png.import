@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://caqfk2xng5v5u"
-path="res://.godot/imported/pine_tree.png-7982f0a6619ddc878f530ba7517996c6.ctex"
+uid="uid://b2ent6mf1y7w7"
+path="res://.godot/imported/square_ref.png-2c4e66c146b411c3f38a81b347d04494.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Trees/pine_tree.png"
-dest_files=["res://.godot/imported/pine_tree.png-7982f0a6619ddc878f530ba7517996c6.ctex"]
+source_file="res://Player/happy_boo/square_ref.png"
+dest_files=["res://.godot/imported/square_ref.png-2c4e66c146b411c3f38a81b347d04494.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://caqfk2xng5v5u"
-path="res://.godot/imported/pine_tree.png-7982f0a6619ddc878f530ba7517996c6.ctex"
+uid="uid://cai2ijnbypqtr"
+path="res://.godot/imported/slime_hurt_eyes.png-cbf8e0dc9e5731de2839b6bcb708ed3c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Trees/pine_tree.png"
-dest_files=["res://.godot/imported/pine_tree.png-7982f0a6619ddc878f530ba7517996c6.ctex"]
+source_file="res://Enemies/slime/slime_hurt_eyes.png"
+dest_files=["res://.godot/imported/slime_hurt_eyes.png-cbf8e0dc9e5731de2839b6bcb708ed3c.ctex"]
 
 [params]
 

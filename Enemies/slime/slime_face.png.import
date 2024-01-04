@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://caqfk2xng5v5u"
-path="res://.godot/imported/pine_tree.png-7982f0a6619ddc878f530ba7517996c6.ctex"
+uid="uid://c078jrp2yvc4s"
+path="res://.godot/imported/slime_face.png-c28cbf24100145fa4ed1e2c7c0e82ca6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Trees/pine_tree.png"
-dest_files=["res://.godot/imported/pine_tree.png-7982f0a6619ddc878f530ba7517996c6.ctex"]
+source_file="res://Enemies/slime/slime_face.png"
+dest_files=["res://.godot/imported/slime_face.png-c28cbf24100145fa4ed1e2c7c0e82ca6.ctex"]
 
 [params]
 

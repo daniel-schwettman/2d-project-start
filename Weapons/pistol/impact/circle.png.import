@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://caqfk2xng5v5u"
-path="res://.godot/imported/pine_tree.png-7982f0a6619ddc878f530ba7517996c6.ctex"
+uid="uid://dn80eu1qs371v"
+path="res://.godot/imported/circle.png-2b0a6c7b42a08f78c68080e7b17982c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Trees/pine_tree.png"
-dest_files=["res://.godot/imported/pine_tree.png-7982f0a6619ddc878f530ba7517996c6.ctex"]
+source_file="res://Weapons/pistol/impact/circle.png"
+dest_files=["res://.godot/imported/circle.png-2b0a6c7b42a08f78c68080e7b17982c6.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://caqfk2xng5v5u"
-path="res://.godot/imported/pine_tree.png-7982f0a6619ddc878f530ba7517996c6.ctex"
+uid="uid://brgpjilf7s2ul"
+path="res://.godot/imported/muzzle_flash.png-5283f398a2c365fe0185a58f520f13e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Trees/pine_tree.png"
-dest_files=["res://.godot/imported/pine_tree.png-7982f0a6619ddc878f530ba7517996c6.ctex"]
+source_file="res://Weapons/pistol/muzzle_flash/muzzle_flash.png"
+dest_files=["res://.godot/imported/muzzle_flash.png-5283f398a2c365fe0185a58f520f13e4.ctex"]
 
 [params]
 

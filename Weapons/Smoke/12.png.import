@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://caqfk2xng5v5u"
-path="res://.godot/imported/pine_tree.png-7982f0a6619ddc878f530ba7517996c6.ctex"
+uid="uid://cunqktc11b8nd"
+path="res://.godot/imported/12.png-9feddb8dafa268709b3fb40883c7cd43.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Trees/pine_tree.png"
-dest_files=["res://.godot/imported/pine_tree.png-7982f0a6619ddc878f530ba7517996c6.ctex"]
+source_file="res://Weapons/Smoke/12.png"
+dest_files=["res://.godot/imported/12.png-9feddb8dafa268709b3fb40883c7cd43.ctex"]
 
 [params]
 

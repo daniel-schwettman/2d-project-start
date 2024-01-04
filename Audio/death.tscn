@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhn1fmdxlut0i"]
+
+[ext_resource type="AudioStream" uid="uid://cb5vedpovf8wb" path="res://Enemies/slime/death.mp3" id="1_ljln2"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_ljln2")
