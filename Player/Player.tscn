@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cu7nprwcf32j1"]
+[gd_scene load_steps=8 format=3 uid="uid://cu7nprwcf32j1"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_y8i1n"]
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://Player/happy_boo/happy_boo.tscn" id="2_ly8sk"]
 [ext_resource type="PackedScene" uid="uid://drqr0a7gqmouv" path="res://Weapons/gun.tscn" id="3_0ee20"]
+[ext_resource type="PackedScene" uid="uid://bkmka2ew0unwr" path="res://Player/Abilities/Dash.tscn" id="4_tjbb5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mcqfm"]
 radius = 20.9051
@@ -62,6 +63,9 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 position = Vector2(-1.00148, -1.99926)
 shape = SubResource("RectangleShape2D_kt4yp")
+
+[node name="Dash" parent="." instance=ExtResource("4_tjbb5")]
+unique_name_in_owner = true
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="area_shape_entered" from="HurtBox" to="." method="_on_hurt_box_area_shape_entered"]

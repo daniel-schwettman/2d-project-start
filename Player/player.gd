@@ -18,6 +18,9 @@ var currentPistolLevel = 1
 var throwDistance = 800
 var isHoldingItem = false
 var enemiesKilled = 0
+var dash_speed = 3000
+var dash_duration = 0.2
+var move_speed = 600
 
 func _ready():
 	var sb = StyleBoxFlat.new()
@@ -33,6 +36,7 @@ func _upgradePistol():
 		bulletRange += 10 * currentPistolLevel
 		bulletSpeed += 10 * currentPistolLevel
 		bulletDamage += 1
+		frameCount -= 1
 		
 	if money < upgradeCost:
 		canPurchase = false
@@ -46,20 +50,42 @@ func _input(_event):
 
 func _physics_process(delta):
 	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = direction * 600
+	
+	if Input.is_action_just_pressed("dash") and $Dash.can_dash and !$Dash.is_dashing():
+		$Dash.start_dash(dash_duration)
+	
+	var speed = dash_speed if $Dash.is_dashing() else move_speed	
+	
+	velocity = direction * speed
+	var overlapping_mobs = %HurtBox.get_overlapping_bodies()
+	
+	if $Dash.is_dashing():
+		set_collision_layer_value(1, false)
+		set_collision_layer_value(3, true)
+		set_collision_mask_value(2, false)
+	else:
+		set_collision_layer_value(1, true)
+		set_collision_layer_value(3, false)
+		set_collision_mask_value(2, true)
+	#else:
+		#if overlapping_mobs.size() > 0:
+			#for n in overlapping_mobs:
+				#add_collision_exception_with(overlapping_mobs[n])
+				
 	move_and_slide()
 	
 	if briefcase.pickedUp and !briefcase.thrown:
 		briefcase.position = $HurtBox.global_position
 	
 	if velocity.length() > 0.0:
-		%HappyBoo.play_walk_animation()
+		if $Dash.is_dashing():
+			%HappyBoo.play_dodge_animation()
+		else:
+			%HappyBoo.play_walk_animation()
 	else:
 		%HappyBoo.play_idle_animation()
 	
 	const DAMAGE_RATE = 5.0
-	
-	var overlapping_mobs = %HurtBox.get_overlapping_bodies()
 	
 	if overlapping_mobs.size() > 0:
 		health -= DAMAGE_RATE * overlapping_mobs.size() * delta

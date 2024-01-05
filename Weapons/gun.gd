@@ -13,7 +13,7 @@ func _physics_process(_delta):
 	else:
 		isShooting = false
 	
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_MIDDLE):
 		isThrowing = true
 	else:
 		isThrowing = false

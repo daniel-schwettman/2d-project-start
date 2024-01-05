@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b5xdc88s23e8x"]
 
-[ext_resource type="Script" path="res://Enemies/mob.gd" id="1_eu172"]
-[ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://Enemies/slime/slime.tscn" id="2_i31aa"]
+[ext_resource type="Script" path="res://Enemies/mob.gd" id="1_gtbht"]
+[ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://Enemies/slime/slime.tscn" id="2_y8po0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_525mc"]
 radius = 51.0392
@@ -11,9 +11,9 @@ position = Vector2(4, 0)
 collision_layer = 2
 collision_mask = 3
 platform_floor_layers = 4294967040
-script = ExtResource("1_eu172")
+script = ExtResource("1_gtbht")
 
-[node name="Slime" parent="." instance=ExtResource("2_i31aa")]
+[node name="Slime" parent="." instance=ExtResource("2_y8po0")]
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -7,3 +7,6 @@ func play_idle_animation():
 
 func play_walk_animation():
 	%AnimationPlayer.play("walk")
+	
+func play_dodge_animation():
+	%AnimationPlayer.play("dodge")
